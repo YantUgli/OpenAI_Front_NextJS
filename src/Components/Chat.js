@@ -1,0 +1,133 @@
+'use client'
+import React, { useState } from 'react';
+
+export default function Chatbox() {
+    const [isChatboxOpen, setIsChatboxOpen] = useState(false);
+    const [messages, setMessages] = useState([]);
+    const [userInput, setUserInput] = useState('');
+
+    const toggleChatbox = () => {
+        setIsChatboxOpen(!isChatboxOpen);
+        if (!isChatboxOpen && messages.length === 0) {
+            // Tambahkan sapaan pertama dari AI saat chatbox pertama kali dibuka
+            setMessages([{ text: 'Ada yang bisa dibantu oleh ITHO AI?', sender: 'bot' }]);
+        }
+    };
+
+    const handleSend = async () => {
+        if (userInput.trim() !== '') {
+            const newMessages = [...messages, { text: userInput, sender: 'user' }];
+            setMessages(newMessages);
+            setUserInput('');
+            const response = await fetch('http://localhost:3333/stream-openai', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt: userInput }),
+            });
+            const data = await response.json();
+            console.log('ini Data', data);
+            const botResponse = data.choices[0].message.content
+
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { text: botResponse, sender: 'bot' }
+            ]);
+        }
+    };
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            handleSend();
+        }
+    };
+
+    return (
+        <div className="fixed bottom-0 right-0 mb-4 mr-4 z-30">
+            <button
+                id="open-chat"
+                onClick={toggleChatbox}
+                className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 flex items-center"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                </svg>
+                Chat with Itho AI
+            </button>
+
+            {isChatboxOpen && (
+                <div id="chat-container" className="fixed bottom-16 right-4 w-96 z-30">
+                    <div className="bg-white shadow-md rounded-lg max-w-lg w-full">
+                        <div className="p-4 border-b bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
+                            <p className="text-lg font-semibold">Itho AI</p>
+                            <button
+                                id="close-chat"
+                                onClick={toggleChatbox}
+                                className="text-gray-300 hover:text-gray-400 focus:outline-none focus:text-gray-400"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="w-6 h-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M6 18L18 6M6 6l12 12"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div id="chatbox" className="p-4 h-80 overflow-y-auto">
+                            {messages.map((msg, index) => (
+                                <div key={index} className={`mb-2 ${msg.sender === 'user' ? 'text-right' : ''}`}>
+                                    <p
+                                        className={`${msg.sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+                                            } rounded-lg py-2 px-4 inline-block`}
+                                    >
+                                        {msg.text}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="p-4 border-t flex">
+                            <input
+                                id="user-input"
+                                type="text"
+                                placeholder="Type a message"
+                                className="w-full px-3 py-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                value={userInput}
+                                onChange={(e) => setUserInput(e.target.value)}
+                                onKeyPress={handleKeyPress}
+                            />
+                            <button
+                                id="send-button"
+                                onClick={handleSend}
+                                className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300"
+                            >
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}
