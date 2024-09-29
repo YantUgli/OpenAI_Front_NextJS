@@ -21,19 +21,19 @@ export default function Footer() {
                             <ul className="text-white/70  font-medium">
                                 <li className="mb-4 ">
                                     <a href="/" className="hover:underline flex gap-2 items-center">
-                                        <Image src={LogoIG} className="w-6 h-6" />
+                                        <Image src={LogoIG} className="w-6 h-6" alt='image' />
                                         @ithoacademy
                                     </a>
                                 </li>
                                 <li className="mb-4 ">
                                     <a href="/" className="hover:underline flex gap-2 items-center">
-                                        <Image src={LogoTiktok} className="w-6 h-6" />
+                                        <Image src={LogoTiktok} className="w-6 h-6" alt='image' />
                                         tiktok
                                     </a>
                                 </li>
                                 <li className="mb-4 ">
                                     <a href="/" className="hover:underline flex gap-2 items-center">
-                                        <Image src={LogoWA} className="w-6 h-6" />
+                                        <Image src={LogoWA} className="w-6 h-6" alt='image' />
                                         +62 857-7853-7382
                                     </a>
                                 </li>
@@ -61,10 +61,10 @@ export default function Footer() {
 
 
                         <a href="#" className="text-white/70 hover:text-white  ms-5">
-                            <Image src={LogoIG} className="w-4 h-4" />
+                            <Image src={LogoIG} className="w-4 h-4" alt='image' />
                         </a>
                         <a href="#" className="text-white/70 hover:text-white  ms-5">
-                            <Image src={LogoTiktok} className="w-4 h-4" />
+                            <Image src={LogoTiktok} className="w-4 h-4" alt='image' />
 
                         </a>
                     </div>

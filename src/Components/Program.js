@@ -47,7 +47,7 @@ export default function Program() {
                             </ul>
                         </div>
                         <div className="w-1/5 h-full absolute right-16 top-2 hidden md:block">
-                            <Image src={ProgramImg} className="w-full" />
+                            <Image src={ProgramImg} className="w-full" alt='image' />
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 flex-none py-4 relative flex">
@@ -71,7 +71,7 @@ export default function Program() {
                             </ul>
                         </div>
                         <div className="w-1/5 h-full absolute right-16 top-2 hidden md:block">
-                            <Image src={ProgramImg2} className="w-full" />
+                            <Image src={ProgramImg2} className="w-full" alt='image' />
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 flex-none py-4 relative flex">
@@ -96,7 +96,7 @@ export default function Program() {
                             </ul>
                         </div>
                         <div className="w-1/5 h-full absolute right-10 top-2 hidden md:block">
-                            <Image src={ProgramImg3} className="w-full" />
+                            <Image src={ProgramImg3} className="w-full" alt='image' />
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 flex-none py-4 relative flex">
@@ -121,7 +121,7 @@ export default function Program() {
                             </ul>
                         </div>
                         <div className="w-1/5 h-full absolute right-16 top-2 hidden md:block">
-                            <Image src={ProgramImg4} className="w-full" />
+                            <Image src={ProgramImg4} className="w-full" alt='image' />
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 flex-none py-4 relative flex">
@@ -145,7 +145,7 @@ export default function Program() {
                             </ul>
                         </div>
                         <div className="w-1/5 h-full absolute right-16 top-2 hidden md:block">
-                            <Image src={ProgramImg5} className="w-full" />
+                            <Image src={ProgramImg5} className="w-full" alt='image' />
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 flex-none py-4 relative flex">
@@ -169,7 +169,7 @@ export default function Program() {
                             </ul>
                         </div>
                         <div className="w-1/5 h-full absolute right-16 top-2 hidden md:block">
-                            <Image src={ProgramImg6} className="w-full" />
+                            <Image src={ProgramImg6} className="w-full" alt='image' />
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 flex-none py-4 relative flex">
@@ -193,7 +193,7 @@ export default function Program() {
                             </ul>
                         </div>
                         <div className="w-1/5 h-full absolute right-16 top-2 hidden md:block">
-                            <Image src={ProgramImg7} className="w-full" />
+                            <Image src={ProgramImg7} className="w-full" alt='image' />
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 flex-none py-4 relative flex">
@@ -217,7 +217,7 @@ export default function Program() {
                             </ul>
                         </div>
                         <div className="w-1/5 h-full absolute right-16 top-2 hidden md:block">
-                            <Image src={ProgramImg8} className="w-full" />
+                            <Image src={ProgramImg8} className="w-full" alt='image' />
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 flex-none py-4 relative flex">
@@ -241,7 +241,7 @@ export default function Program() {
                             </ul>
                         </div>
                         <div className="w-1/5 h-full absolute right-16 top-2 hidden md:block">
-                            <Image src={ProgramImg9} className="w-full" />
+                            <Image src={ProgramImg9} className="w-full" alt='image' />
                         </div>
                     </div>
                 </div>
