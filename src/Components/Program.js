@@ -16,8 +16,8 @@ import ProgramImg9 from "@/Assets/Img/program9.png";
 export default function Program() {
     return (
         <section className="relative" id="program">
-            <Image src={WaveImg3} className="w-full h-16 md:h-32 z-10 absolute top-0" />
-            <Image src={WaveImg4} className="w-full h-20 md:h-40 absolute top-0 " />
+            <Image src={WaveImg3} className="w-full h-16 md:h-32 z-10 absolute top-0" alt='image' />
+            <Image src={WaveImg4} className="w-full h-20 md:h-40 absolute top-0 " alt='image' />
 
             <div className="pb-10 pt-36 container mx-auto ">
                 <div className="flex justify-start">
