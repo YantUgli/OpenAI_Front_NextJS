@@ -1,5 +1,7 @@
-'use client'
+// components/Chatbox.js
+'use client';
 import React, { useState } from 'react';
+import Markdown from './Markdown'; // Import komponen Markdown
 
 export default function Chatbox() {
     const [isChatboxOpen, setIsChatboxOpen] = useState(false);
@@ -19,7 +21,8 @@ export default function Chatbox() {
             const newMessages = [...messages, { text: userInput, sender: 'user' }];
             setMessages(newMessages);
             setUserInput('');
-            const response = await fetch('http://localhost:3333/stream-openai', {
+
+            const response = await fetch('http://localhost:3333/stream-openai', { // Sesuaikan URL dengan endpoint API Anda
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,12 +30,12 @@ export default function Chatbox() {
                 body: JSON.stringify({ prompt: userInput }),
             });
             const data = await response.json();
-            console.log('ini Data', data);
-            const botResponse = data.choices[0].message.content
+            const botResponse = data.choices[0].message.content;
+            console.log(data)
 
             setMessages((prevMessages) => [
                 ...prevMessages,
-                { text: botResponse, sender: 'bot' }
+                { text: botResponse, sender: 'bot' },
             ]);
         }
     };
@@ -64,14 +67,14 @@ export default function Chatbox() {
                         d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                     />
                 </svg>
-                Chat with Itho AI
+                Chat with ITHO AI
             </button>
 
             {isChatboxOpen && (
                 <div id="chat-container" className="fixed bottom-16 right-4 w-96 z-30">
                     <div className="bg-white shadow-md rounded-lg max-w-lg w-full">
                         <div className="p-4 border-b bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
-                            <p className="text-lg font-semibold">Itho AI</p>
+                            <p className="text-lg font-semibold">ITHO AI</p>
                             <button
                                 id="close-chat"
                                 onClick={toggleChatbox}
@@ -97,12 +100,14 @@ export default function Chatbox() {
                         <div id="chatbox" className="p-4 h-80 overflow-y-auto">
                             {messages.map((msg, index) => (
                                 <div key={index} className={`mb-2 ${msg.sender === 'user' ? 'text-right' : ''}`}>
-                                    <p
-                                        className={`${msg.sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-                                            } rounded-lg py-2 px-4 inline-block`}
+                                    <div
+                                        className={`${msg.sender === 'user'
+                                            ? 'bg-blue-500 text-white'
+                                            : 'bg-gray-200 text-gray-700'
+                                            } rounded-lg py-2 px-4 inline-block max-w-full overflow-x-auto`}
                                     >
-                                        {msg.text}
-                                    </p>
+                                        <Markdown content={msg.text} /> {/* Menggunakan komponen Markdown */}
+                                    </div>
                                 </div>
                             ))}
                         </div>

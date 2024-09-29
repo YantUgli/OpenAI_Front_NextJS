@@ -13,48 +13,48 @@ import Image from 'next/image';
 
 export default function Keunggulan() {
     return (
-        <section class="relative overflow-hidden">
-            <Image src={CircleImg} class="w-36 absolute top-0 -right-16" />
-            <div class="container mx-auto pt-10 ">
-                <div class="flex justify-start">
-                    <h1 class="font-PoppinsBold py-4 px-8 bg-Orange rounded-full text-white">
+        <section className="relative overflow-hidden">
+            <Image src={CircleImg} className="w-36 absolute top-0 -right-16" />
+            <div className="container mx-auto pt-10 ">
+                <div className="flex justify-start">
+                    <h1 className="font-PoppinsBold py-4 px-8 bg-Orange rounded-full text-white">
                         Keunggulan
                     </h1>
                 </div>
-                <div class=" mt-12 px-8 py-4 flex flex-wrap gap-4 justify-center">
-                    <div class="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
-                        <Image src={KeunggulanImg1} class="absolute w-1/2 -top-12 " />
-                        <div class="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
+                <div className=" mt-12 px-8 py-4 flex flex-wrap gap-4 justify-center">
+                    <div className="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
+                        <Image src={KeunggulanImg1} className="absolute w-1/2 -top-12 " />
+                        <div className="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
                             Kurikulum Berbasis Industri
                         </div>
                     </div>
-                    <div class="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
-                        <Image src={KeunggulanImg2} class="absolute w-1/2 -top-12 " />
-                        <div class="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
+                    <div className="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
+                        <Image src={KeunggulanImg2} className="absolute w-1/2 -top-12 " />
+                        <div className="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
                             Fleksibilitas Waktu
                         </div>
                     </div>
-                    <div class="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
-                        <Image src={KeunggulanImg3} class="absolute w-1/2 -top-16 " />
-                        <div class="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
+                    <div className="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
+                        <Image src={KeunggulanImg3} className="absolute w-1/2 -top-16 " />
+                        <div className="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
                             Pembelajaran Berbasis Proyek
                         </div>
                     </div>
-                    <div class="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
-                        <Image src={KeunggulanImg4} class="absolute w-1/2 -top-12 " />
-                        <div class="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
+                    <div className="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
+                        <Image src={KeunggulanImg4} className="absolute w-1/2 -top-12 " />
+                        <div className="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
                             Dukungan Karir
                         </div>
                     </div>
-                    <div class="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
-                        <Image src={KeunggulanImg5} class="absolute w-1/2 -top-16 " />
-                        <div class="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
+                    <div className="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
+                        <Image src={KeunggulanImg5} className="absolute w-1/2 -top-16 " />
+                        <div className="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-lg md:text-2xl flex items-center justify-center font-PoppinsBold">
                             Konektivitas Dengan Profesional
                         </div>
                     </div>
-                    <div class="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
-                        <Image src={KeunggulanImg6} class="absolute w-1/2 -top-12 " />
-                        <div class="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-base md:text-2xl flex items-center justify-center font-PoppinsBold">
+                    <div className="max-w-sm aspect-video w-full  flex items-end justify-center relative mb-10">
+                        <Image src={KeunggulanImg6} className="absolute w-1/2 -top-12 " />
+                        <div className="h-1/2 w-full bg-white shadow-lg rounded-2xl py-4 px-6 text-center text-base md:text-2xl flex items-center justify-center font-PoppinsBold">
                             Mempersiapkan siswa SMK untuk sukses di pasar digital
                         </div>
                     </div>

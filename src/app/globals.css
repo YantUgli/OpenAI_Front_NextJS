@@ -46,3 +46,11 @@ h1 {
   font-family: 'PoppinsBold';
   src: url('./fonts/Poppins-Bold.otf') format('opentype');
 }
+
+/* code {
+  @apply inline-block bg-gray-100 p-1 rounded font-mono text-xs whitespace-pre-wrap;
+}
+
+pre {
+  @apply whitespace-pre overflow-x-auto max-w-full;
+} */
