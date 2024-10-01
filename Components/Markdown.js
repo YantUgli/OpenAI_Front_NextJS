@@ -7,28 +7,32 @@ import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 const Markdown = ({ content }) => {
     return (
         <ReactMarkdown
-            // eslint-disable-next-line react/no-children-prop
-            children={content}
             components={{
-                code({ node, inline, className, children, ...props }) {
+                code({ inline, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '');
-                    return !inline && match ? (
-                        <SyntaxHighlighter
-                            // eslint-disable-next-line react/no-children-prop
-                            children={String(children).replace(/\n$/, '')}
-                            style={tomorrow}
-                            language={match[1]}
-                            PreTag="div"
-                            {...props}
-                        />
-                    ) : (
-                        <code className={className} {...props}>
-                            {children}
-                        </code>
-                    );
+                    if (!inline && match) {
+                        return (
+                            <SyntaxHighlighter
+                                style={tomorrow}
+                                language={match[1]}
+                                PreTag="div"
+                                {...props}
+                            >
+                                {String(children).replace(/\n$/, '')}
+                            </SyntaxHighlighter>
+                        );
+                    } else {
+                        return (
+                            <code className={className} {...props}>
+                                {children}
+                            </code>
+                        );
+                    }
                 }
             }}
-        />
+        >
+            {content}
+        </ReactMarkdown>
     );
 };
 

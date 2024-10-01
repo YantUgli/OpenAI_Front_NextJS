@@ -31,6 +31,7 @@ export default function Chatbox() {
             });
             const data = await response.json();
             const botResponse = data.choices[0].message.content;
+            const formattedResponse = parseMessageContent(botResponse);
             console.log(data)
 
             setMessages((prevMessages) => [
@@ -45,6 +46,30 @@ export default function Chatbox() {
             handleSend();
         }
     };
+
+    const parseMessageContent = (content) => {
+        // Convert *text* to <strong>text</strong> (bold)
+        content = content.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
+
+        // Convert _text_ to <em>text</em> (italic)
+        content = content.replace(/_(.*?)_/g, '<em>$1</em>');
+
+        // Convert ## text to <h3>text</h3> (heading level 3)
+        content = content.replace(/^##\s(.*)$/gm, '<h3>$1</h3>');
+
+        // Convert ### text to <h4>text</h4> (heading level 4)
+        content = content.replace(/^###\s(.*)$/gm, '<h4>$1</h4>');
+
+        // Convert `code` to <code>code</code>
+        content = content.replace(/`(.*?)`/g, '<code>$1</code>');
+
+        // Convert - List item to <ul><li>List item</li></ul>
+        content = content.replace(/^- (.*)$/gm, '<ul><li>$1</li></ul>');
+
+        // Return the parsed content safely as HTML
+        return { __html: content };
+    };
+
 
     return (
         <div className="fixed bottom-0 right-0 mb-4 mr-4 z-30">
@@ -97,6 +122,7 @@ export default function Chatbox() {
                             </button>
                         </div>
 
+
                         <div id="chatbox" className="p-4 h-80 overflow-y-auto">
                             {messages.map((msg, index) => (
                                 <div key={index} className={`mb-2 ${msg.sender === 'user' ? 'text-right' : ''}`}>
@@ -106,11 +132,16 @@ export default function Chatbox() {
                                             : 'bg-gray-200 text-gray-700'
                                             } rounded-lg py-2 px-4 inline-block max-w-full overflow-x-auto`}
                                     >
-                                        <Markdown content={msg.text} /> {/* Menggunakan komponen Markdown */}
+                                        {msg.sender === 'bot' ? (
+                                            <div dangerouslySetInnerHTML={parseMessageContent(msg.text)} />
+                                        ) : (
+                                            <span>{msg.text}</span> // Untuk pesan dari user, tidak menggunakan HTML
+                                        )}
                                     </div>
                                 </div>
                             ))}
                         </div>
+
 
                         <div className="p-4 border-t flex">
                             <input
