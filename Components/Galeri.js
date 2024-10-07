@@ -6,7 +6,7 @@ import ExampleImg from "@/Assets/Img/Example.png";
 
 export default function Galeri() {
     return (
-        <section id="galeri" className="relative ">
+        <section id="galeri" className="relative overflow-hidden">
             <Image src={SquareImg} className="w-32 left-2/3 absolute top-0 " alt='image' />
             <Image src={PatternImg3} className="w-64 absolute -top-32 -left-16" alt='image' />
 
