@@ -23,7 +23,8 @@ export default function Chatbox() {
             setUserInput('');
 
             // const response = await fetch('http://localhost:3333/stream-openai', { // Sesuaikan URL dengan endpoint API Anda
-            const response = await fetch('http://localhost:5000/ask', { // Sesuaikan URL dengan endpoint API Anda
+            // const response = await fetch('http://localhost:5000/ask', { // Sesuaikan URL dengan endpoint API Anda
+            const response = await fetch('https://api-chatbot.sijabright.my.id/ask', { // Sesuaikan URL dengan endpoint API Anda
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
